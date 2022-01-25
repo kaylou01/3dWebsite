@@ -7,7 +7,7 @@ canvas{
 }
 
 :root {
-  --dark-bg: white;
+  --dark-bg: rgba(255, 255, 255, 0.65) ;
   --spacing: 200px;
 
   font-family: brandon-grotesque, sans-serif;
@@ -34,6 +34,7 @@ h1, h2, h3, blockquote {
   font-weight: lighter;
   font-style: normal;
 }
+
 
 canvas {
   position: fixed;
@@ -63,7 +64,7 @@ img {
   }
 
   .pufferFish {
-    grid-column: 7 / span 5;;
+    grid-column: 7 / span 5;
     background: var(--dark-bg);
     font-size: 1.25rem;
     line-height: 1.5;
@@ -72,7 +73,7 @@ img {
   }
 
   .jellyfish{
-    grid-column: 4 / span 8;
+    grid-column: 5 / span 7;
     background: var(--dark-bg);
     font-size: 1.25rem;
     line-height: 1.5;
@@ -90,6 +91,7 @@ img {
   blockquote p {
     color: black;
     background-color: white;
+    opacity: 0.65;
     font-size: 4rem;
     display: inline;
     line-height: 1;
@@ -97,4 +99,21 @@ img {
 
   .left {
     grid-column: 6 / 12;
+  }
+
+  #note {
+    font-size: 10px;
+  }
+
+.exploreBTN{ 
+    margin: 0;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: turquoise;
+    border-color: white;
+    color: navy;
+  
   }

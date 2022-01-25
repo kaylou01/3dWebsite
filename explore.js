@@ -4,6 +4,8 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
 
+
+
 // gltf loader ( allows blender modles to be added)
 const gltfLoader = new GLTFLoader();
 
@@ -12,12 +14,12 @@ const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
 const renderer = new THREE.WebGLRenderer({
-  canvas: document.querySelector('#bg'),
+  canvas: document.querySelector('#bgExplore'),
 });
 
 renderer.setPixelRatio( window.devicePixelRatio );
 renderer.setSize( window.innerWidth, window.innerHeight);
-camera.position.setZ(30);
+camera.position.setZ(25);
 
 renderer.render( scene, camera );
 
@@ -42,9 +44,9 @@ scene.add(pointLight)
   gltfLoader.load('/models/coral1.gltf', (gltf) => {
     coral = gltf.scene;
     scene.add(coral)
-    gltf.scene.scale.set(4,4,4)
+    gltf.scene.scale.set(7,7,7)
     gltf.scene.rotation.set(0,0,0.3)
-    gltf.scene.position.set(7,-2,-15)
+    gltf.scene.position.set(0,0,0)
   })
 
   // pufferfish
@@ -52,18 +54,19 @@ scene.add(pointLight)
   gltfLoader.load('/models/pufferfish.gltf', (gltf) => {
     pufferFish = gltf.scene;
     scene.add(pufferFish)
-    gltf.scene.scale.set(4,4,4)
+    gltf.scene.scale.set(2,2,2)
     gltf.scene.rotation.set(0.3,-2,0)
-    gltf.scene.position.set(-20,-4,-8)
+    gltf.scene.position.set(10,10,0)
   })
-
+  
+// purple pufferfish
   var pufferFishP;
   gltfLoader.load('/models/pufferfishPurple.gltf', (gltf) => {
     pufferFishP = gltf.scene;
     scene.add(pufferFishP)
-    gltf.scene.scale.set(2,2,2)
+    gltf.scene.scale.set(1,1,1)
     gltf.scene.rotation.set(0.3,-5,0)
-    gltf.scene.position.set(-15,-10,-5)
+    gltf.scene.position.set(5,8,15)
   })
 
   // sea horse
@@ -73,15 +76,15 @@ var seaHorse;
     scene.add(seaHorse)
     
     gltf.scene.scale.set(0.5,0.5,0.5)
-    gltf.scene.position.set(3,1,12)
+    gltf.scene.position.set(-20,10,0)
   })
 
   // crab
 var crab;
   gltfLoader.load('/models/crabModel.gltf', (gltf) => {
     crab = gltf.scene;
-    gltf.scene.scale.set(6,6,6)
-    gltf.scene.position.set(-30,-10,25)
+    gltf.scene.scale.set(3,3,3)
+    gltf.scene.position.set(-18,0,10)
     gltf.scene.rotation.set(0.5,-15,1)
     scene.add(crab)
   })
@@ -91,8 +94,8 @@ var crab;
   gltfLoader.load('/models/jellyfishPink.gltf', (gltf) => {
     jellyFish = gltf.scene;
     scene.add(jellyFish)
-    gltf.scene.scale.set(4,4,4)
-    gltf.scene.position.set(-45,5,35)
+    gltf.scene.scale.set(2,2,2)
+    gltf.scene.position.set(0,10,-20)
   })
 
     // jellyfish
@@ -100,12 +103,13 @@ var crab;
     gltfLoader.load('/models/jellyfiishBlue.gltf', (gltf) => {
       jellyFishB = gltf.scene;
       scene.add(jellyFishB)
-      gltf.scene.scale.set(3,3,3)
-      gltf.scene.position.set(-50,-10,50)
+      gltf.scene.scale.set(1.5,1.5,1.5)
+      gltf.scene.position.set(-10,2,-20)
     })
 
+  
 
-
+  const controls = new OrbitControls(camera, renderer.domElement);
 
 
 // background img
@@ -151,28 +155,22 @@ function animate(){
   requestAnimationFrame(animate);
   renderer.render(scene, camera);
 
-  // coral animation
-  coral.rotation.y += 0.008;
-
   // pufferfish animation
 
   pufferFish.rotation.y += 0.01;
   pufferFishP.rotation.y += 0.01;
 
   // sea horse animation
-  //seaHorse.rotation.x += 0.01;
   seaHorse.rotation.y += 0.03;
 
   // crab Animation
 
-  crab.rotation.x += 0.01;
-  crab.rotation.z += 0.01;
+  crab.rotation.y += 0.01;
 
   //jelly fish animation
   
   jellyFish.rotation.y -= 0.01;
-
-  jellyFishB.rotation.y += 0.01;
+  jellyFishB.rotation.y -=0.02;
 
   
 
@@ -180,19 +178,7 @@ function animate(){
 
 }
 
-function moveCamera(){
 
-  const t = document.body.getBoundingClientRect().top;
-
-  
-
-  camera.position.z = t * -0.01;
-  camera.position.x = t * -0.0002;
-  camera.rotation.y = t * -0.0002;
-
-}
-document.body.onscroll = moveCamera;
-moveCamera();
 
 // calling functions
 

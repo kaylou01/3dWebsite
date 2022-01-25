@@ -57,15 +57,6 @@ scene.add(pointLight)
     gltf.scene.position.set(-20,-4,-8)
   })
 
-  var pufferFishP;
-  gltfLoader.load('/models/pufferfishPurple.gltf', (gltf) => {
-    pufferFishP = gltf.scene;
-    scene.add(pufferFishP)
-    gltf.scene.scale.set(2,2,2)
-    gltf.scene.rotation.set(0.3,-5,0)
-    gltf.scene.position.set(-15,-10,-5)
-  })
-
   // sea horse
 var seaHorse;
   gltfLoader.load('/models/seaHorse1.gltf', (gltf) => {
@@ -94,16 +85,6 @@ var crab;
     gltf.scene.scale.set(4,4,4)
     gltf.scene.position.set(-45,5,35)
   })
-
-    // jellyfish
-    var jellyFishB;
-    gltfLoader.load('/models/jellyfiishBlue.gltf', (gltf) => {
-      jellyFishB = gltf.scene;
-      scene.add(jellyFishB)
-      gltf.scene.scale.set(3,3,3)
-      gltf.scene.position.set(-50,-10,50)
-    })
-
 
 
 
@@ -157,7 +138,6 @@ function animate(){
   // pufferfish animation
 
   pufferFish.rotation.y += 0.01;
-  pufferFishP.rotation.y += 0.01;
 
   // sea horse animation
   //seaHorse.rotation.x += 0.01;
@@ -171,8 +151,6 @@ function animate(){
   //jelly fish animation
   
   jellyFish.rotation.y -= 0.01;
-
-  jellyFishB.rotation.y += 0.01;
 
   
 
