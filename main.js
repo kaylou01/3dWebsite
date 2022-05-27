@@ -39,7 +39,7 @@ scene.add(pointLight)
 
   // coral
   var coral;
-  gltfLoader.load('/models/coral1.gltf', (gltf) => {
+  gltfLoader.load('/models/newCoral.gltf', (gltf) => {
     coral = gltf.scene;
     scene.add(coral)
     gltf.scene.scale.set(4,4,4)
